@@ -1,0 +1,57 @@
+import pandas as pd
+import numpy as np
+
+# Create sample insulation data
+np.random.seed(42)
+
+insulation_data = []
+
+# Define insulation types and their typical properties
+insulation_types = {
+    'Cerablanket': {
+        'density_range': (120, 135),
+        'thermal_conductivity_range': (0.040, 0.050),
+        'max_temp': 1260
+    },
+    'Silika Needeled Mat': {
+        'density_range': (90, 105),
+        'thermal_conductivity_range': (0.035, 0.042),
+        'max_temp': 1000
+    },
+    'Rock Wool': {
+        'density_range': (130, 150),
+        'thermal_conductivity_range': (0.038, 0.046),
+        'max_temp': 750
+    },
+    'Needeled Mat': {
+        'density_range': (110, 130),
+        'thermal_conductivity_range': (0.037, 0.043),
+        'max_temp': 650
+    }
+}
+
+# Generate sample data
+for i in range(100):
+    insulation_type = np.random.choice(list(insulation_types.keys()))
+    props = insulation_types[insulation_type]
+    
+    insulation_data.append({
+        'Layer_ID': i + 1,
+        'Insulation_Type': insulation_type,
+        'Thickness_mm': np.random.uniform(20, 120),
+        'Density_kg_m3': np.random.uniform(*props['density_range']),
+        'Thermal_Conductivity_W_mK': np.random.uniform(*props['thermal_conductivity_range']),
+        'Convection_Coefficient_W_m2K': np.random.uniform(8, 25),
+        'Max_Temperature_C': props['max_temp'],
+        'Cost_per_m2': np.random.uniform(15, 45)
+    })
+
+# Create DataFrame
+df = pd.DataFrame(insulation_data)
+
+# Save to Excel file
+df.to_excel('/workspace/inputdata.xlsx', index=False, sheet_name='Insulation_Data')
+
+print("Sample Excel file created: inputdata.xlsx")
+print(f"Data shape: {df.shape}")
+print(f"Columns: {list(df.columns)}")
