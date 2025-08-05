@@ -308,7 +308,7 @@ def main():
     """
     print("🚀 ADVANCED THERMAL INSULATION ANALYSIS SYSTEM")
     print("=" * 60)
-    print("این سیستم برای پیش‌بینی دمای سطح تجهیزات پیچیده طراحی شده است")
+    print("This system is designed to predict surface temperatures of complex equipment")
     print("=" * 60)
     
     try:

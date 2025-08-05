@@ -56,7 +56,7 @@ def create_sample_html_files(num_files=10):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گزارش تحلیل حرارتی - {equipment_type}</title>
+            <title>Thermal Analysis Report - {equipment_type}</title>
     <style>
         body {{ font-family: 'Tahoma', Arial, sans-serif; margin: 20px; }}
         .header {{ background: #2c3e50; color: white; padding: 15px; text-align: center; }}
@@ -68,21 +68,21 @@ def create_sample_html_files(num_files=10):
 </head>
 <body>
     <div class="header">
-        <h1>🔥 نرم‌افزار تحلیل حرارتی کلورز (Kloriz)</h1>
-        <p>گزارش تحلیل عایق‌کاری حرارتی</p>
+        <h1>🔥 Kloriz Thermal Analysis Software</h1>
+        <p>Thermal Insulation Analysis Report</p>
     </div>
     
     <div class="content">
-        <h2>📋 مشخصات تجهیز</h2>
+        <h2>📋 Equipment Specifications</h2>
         
         <div class="parameter">
-            <strong>نوع تجهیز (Equipment Type):</strong> 
+            <strong>Equipment Type:</strong> 
             <span class="value equipment_type">{equipment_type}</span>
         </div>
         
         <div class="parameter">
-            <strong>دمای داخلی تجهیز (Internal Temperature):</strong> 
-            <span class="value internal_temp">{internal_temp:.1f}</span> درجه سانتیگراد
+            <strong>Internal Temperature:</strong> 
+            <span class="value internal_temp">{internal_temp:.1f}</span> °C
         </div>
         
         <div class="parameter">
@@ -106,14 +106,14 @@ def create_sample_html_files(num_files=10):
         </div>
         
         <div class="result">
-            <h3>🌡️ نتیجه تحلیل</h3>
-            <p><strong>دمای سطح خارجی عایق (Surface Temperature):</strong> 
-            <span class="value surface_temp">{surface_temp:.1f}</span> درجه سانتیگراد</p>
+            <h3>🌡️ Analysis Result</h3>
+            <p><strong>External Insulation Surface Temperature:</strong> 
+            <span class="value surface_temp">{surface_temp:.1f}</span> °C</p>
         </div>
         
         <div style="margin-top: 30px; text-align: center; color: #6c757d;">
-            <p>تاریخ تحلیل: {datetime.now().strftime('%Y/%m/%d - %H:%M')}</p>
-            <p>نرم‌افزار کلورز - نسخه 2.1</p>
+            <p>Analysis Date: {datetime.now().strftime('%Y/%m/%d - %H:%M')}</p>
+            <p>Kloriz Software - Version 2.1</p>
         </div>
     </div>
 </body>
@@ -141,7 +141,7 @@ def create_sample_excel_file():
             'density_range': (120, 135),
             'thermal_conductivity_range': (0.040, 0.050),
             'max_temp': 1260,
-            'description': 'عایق سرامیکی با مقاومت حرارتی بالا'
+            'description': 'Ceramic insulation with high thermal resistance'
         },
         'Silika Needeled Mat': {
             'density_range': (90, 105),

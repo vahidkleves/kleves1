@@ -23,7 +23,7 @@ def predict_single_equipment():
     """
     print("🔮 THERMAL SURFACE TEMPERATURE PREDICTOR")
     print("=" * 50)
-    print("لطفاً مشخصات تجهیز خود را وارد کنید:")
+    print("Please enter your equipment specifications:")
     print()
     
     # Load the trained model
@@ -37,7 +37,7 @@ def predict_single_equipment():
     
     # Get user input
     try:
-        print("انواع تجهیزات موجود:")
+        print("Available equipment types:")
         equipment_types = [
             'Horizontal Pipe', 'Vertical Pipe', 'Horizontal Flat Surface',
             'Vertical Flat Surface', 'Sphere', 'Cube', 'Turbine V94.2',
@@ -47,14 +47,14 @@ def predict_single_equipment():
         for i, eq_type in enumerate(equipment_types, 1):
             print(f"  {i}. {eq_type}")
         
-        choice = int(input("\nانتخاب نوع تجهیز (شماره): ")) - 1
+        choice = int(input("\nSelect equipment type (number): ")) - 1
         equipment_type = equipment_types[choice] if 0 <= choice < len(equipment_types) else 'Compressor'
         
-        internal_temp = float(input("دمای داخلی تجهیز (درجه سانتیگراد): "))
-        ambient_temp = float(input("دمای محیط (درجه سانتیگراد): "))
-        wind_speed = float(input("سرعت باد (متر بر ثانیه): "))
-        thickness = float(input("ضخامت کل عایق (میلی‌متر): "))
-        surface_area = float(input("مساحت کل سطح (متر مربع): "))
+        internal_temp = float(input("Internal equipment temperature (°C): "))
+        ambient_temp = float(input("Ambient temperature (°C): "))
+        wind_speed = float(input("Wind speed (m/s): "))
+        thickness = float(input("Total insulation thickness (mm): "))
+        surface_area = float(input("Total surface area (m²): "))
         
         equipment_data = {
             'equipment_type': equipment_type,
@@ -65,38 +65,38 @@ def predict_single_equipment():
             'surface_area': surface_area
         }
         
-        print("\n🔄 در حال محاسبه...")
+        print("\n🔄 Calculating...")
         
         # Make prediction
         result = analyzer.predict_temperature(equipment_data)
         
         # Display results
         print("\n" + "=" * 50)
-        print("🎯 نتایج پیش‌بینی:")
+        print("🎯 Prediction Results:")
         print("=" * 50)
-        print(f"نوع تجهیز: {equipment_type}")
-        print(f"دمای سطح پیش‌بینی شده: {result['predicted_surface_temperature']}°C")
-        print(f"محدوده اطمینان: ±{result['confidence_range']}°C")
-        print(f"مدل استفاده شده: {result['model_used']}")
+        print(f"Equipment Type: {equipment_type}")
+        print(f"Predicted Surface Temperature: {result['predicted_surface_temperature']}°C")
+        print(f"Confidence Range: ±{result['confidence_range']}°C")
+        print(f"Model Used: {result['model_used']}")
         
         # Safety analysis
         surface_temp = result['predicted_surface_temperature']
         if surface_temp <= 60:
-            safety = "ایمن ✅"
-            recommendation = "تجهیز برای عملیات عادی و تماس پرسنل ایمن است."
+            safety = "Safe ✅"
+            recommendation = "Equipment is safe for normal operation and personnel contact."
         elif surface_temp <= 80:
-            safety = "احتیاط ⚠️"
-            recommendation = "هنگام کار با تجهیز احتیاط کنید. نصب علائم هشدار را در نظر بگیرید."
+            safety = "Caution ⚠️"
+            recommendation = "Use caution around equipment. Consider installing warning signs."
         elif surface_temp <= 100:
-            safety = "هشدار ⚠️"
-            recommendation = "علائم هشدار و موانع نصب کنید. دسترسی پرسنل را محدود کنید."
+            safety = "Warning ⚠️"
+            recommendation = "Install warning signs and barriers. Limit personnel access."
         else:
-            safety = "خطرناک ❌"
-            recommendation = "بحرانی: موانع محافظ و سیستم‌های هشدار نصب کنید. دسترسی را محدود کنید."
+            safety = "Danger ❌"
+            recommendation = "CRITICAL: Install protective barriers and warning systems. Restrict access."
         
-        print(f"\n🛡️ تحلیل ایمنی:")
-        print(f"سطح ایمنی: {safety}")
-        print(f"توصیه: {recommendation}")
+        print(f"\n🛡️ Safety Analysis:")
+        print(f"Safety Level: {safety}")
+        print(f"Recommendation: {recommendation}")
         
         # Save result
         result_df = pd.DataFrame([{
@@ -113,10 +113,10 @@ def predict_single_equipment():
         }])
         
         result_df.to_excel('/workspace/prediction_result.xlsx', index=False)
-        print(f"\n💾 نتایج در فایل ذخیره شد: /workspace/prediction_result.xlsx")
+        print(f"\n💾 Results saved to file: /workspace/prediction_result.xlsx")
         
     except Exception as e:
-        print(f"❌ خطا در پردازش: {str(e)}")
+        print(f"❌ Processing error: {str(e)}")
 
 def quick_prediction_examples():
     """
@@ -134,7 +134,7 @@ def quick_prediction_examples():
     
     examples = [
         {
-            'name': 'توربین گازی صنعتی',
+            'name': 'Industrial Gas Turbine',
             'equipment_type': 'Turbine V94.2',
             'internal_temperature': 550.0,
             'ambient_temperature': 25.0,
@@ -143,7 +143,7 @@ def quick_prediction_examples():
             'surface_area': 40.0
         },
         {
-            'name': 'کمپرسور مرکزگریز',
+            'name': 'Centrifugal Compressor',
             'equipment_type': 'Compressor',
             'internal_temperature': 350.0,
             'ambient_temperature': 30.0,
@@ -152,7 +152,7 @@ def quick_prediction_examples():
             'surface_area': 18.0
         },
         {
-            'name': 'مبدل حرارتی',
+            'name': 'Heat Exchanger',
             'equipment_type': 'Heat Exchanger',
             'internal_temperature': 400.0,
             'ambient_temperature': 28.0,
@@ -165,42 +165,42 @@ def quick_prediction_examples():
     for example in examples:
         print(f"\n🔧 {example['name']}:")
         result = analyzer.predict_temperature(example)
-        print(f"   دمای سطح: {result['predicted_surface_temperature']}°C ± {result['confidence_range']}°C")
+        print(f"   Surface Temperature: {result['predicted_surface_temperature']}°C ± {result['confidence_range']}°C")
 
 def main():
     """
     Main function
     """
-    print("🌡️ سیستم پیش‌بینی دمای سطح عایق حرارتی")
+    print("🌡️ Thermal Insulation Surface Temperature Prediction System")
     print("=" * 60)
-    print("این سیستم با استفاده از داده‌های نرم‌افزار کلورز و یادگیری ماشین")
-    print("دمای سطح تجهیزات پیچیده را پیش‌بینی می‌کند")
+    print("This system uses Kloriz software data and machine learning")
+    print("to predict surface temperatures of complex equipment")
     print("=" * 60)
     
     while True:
-        print("\nانتخاب کنید:")
-        print("1. پیش‌بینی برای یک تجهیز")
-        print("2. مثال‌های سریع")
-        print("3. خروج")
+        print("\nChoose an option:")
+        print("1. Predict for single equipment")
+        print("2. Quick examples")
+        print("3. Exit")
         
         try:
-            choice = input("\nانتخاب شما (1-3): ").strip()
+            choice = input("\nYour choice (1-3): ").strip()
             
             if choice == '1':
                 predict_single_equipment()
             elif choice == '2':
                 quick_prediction_examples()
             elif choice == '3':
-                print("خداحافظ! 👋")
+                print("Goodbye! 👋")
                 break
             else:
-                print("انتخاب نامعتبر. لطفاً دوباره تلاش کنید.")
+                print("Invalid choice. Please try again.")
                 
         except KeyboardInterrupt:
-            print("\n\nخداحافظ! 👋")
+            print("\n\nGoodbye! 👋")
             break
         except Exception as e:
-            print(f"خطا: {str(e)}")
+            print(f"Error: {str(e)}")
 
 if __name__ == "__main__":
     main()

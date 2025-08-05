@@ -433,11 +433,11 @@ class AdvancedThermalAnalyzer:
         
         html_content = f"""
         <!DOCTYPE html>
-        <html dir="rtl" lang="fa">
+        <html dir="ltr" lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>گزارش تحلیل پیشرفته حرارتی</title>
+            <title>Advanced Thermal Analysis Report</title>
             <style>
                 body {{ font-family: 'Tahoma', Arial, sans-serif; margin: 20px; }}
                 .header {{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; text-align: center; border-radius: 10px; }}
@@ -452,29 +452,29 @@ class AdvancedThermalAnalyzer:
         </head>
         <body>
             <div class="header">
-                <h1>🔬 سیستم تحلیل پیشرفته حرارتی</h1>
-                <p>تحلیل هوشمند عایق‌کاری با یادگیری ماشین</p>
+                <h1>🔬 Advanced Thermal Analysis System</h1>
+                <p>Intelligent Insulation Analysis with Machine Learning</p>
             </div>
             
             <div class="content">
                 <div class="section">
-                    <h2>📊 خلاصه داده‌ها</h2>
+                    <h2>📊 Data Summary</h2>
                     <div class="metric">
-                        <div>تعداد نمونه‌های آموزشی</div>
-                        <div class="value">{len(self.kloriz_data)} نمونه</div>
+                        <div>Training Samples</div>
+                        <div class="value">{len(self.kloriz_data)} samples</div>
                     </div>
                     <div class="metric">
-                        <div>انواع تجهیزات</div>
-                        <div class="value">{len(self.kloriz_data['equipment_type'].unique()) if not self.kloriz_data.empty else 0} نوع</div>
+                        <div>Equipment Types</div>
+                        <div class="value">{len(self.kloriz_data['equipment_type'].unique()) if not self.kloriz_data.empty else 0} types</div>
                     </div>
                     <div class="metric">
-                        <div>انواع عایق</div>
-                        <div class="value">{len(self.insulation_data['Insulation_Type'].unique()) if not self.insulation_data.empty else 0} نوع</div>
+                        <div>Insulation Types</div>
+                        <div class="value">{len(self.insulation_data['Insulation_Type'].unique()) if not self.insulation_data.empty else 0} types</div>
                     </div>
                 </div>
                 
                 <div class="section">
-                    <h2>🤖 مقایسه مدل‌های یادگیری ماشین</h2>
+                    <h2>🤖 Machine Learning Model Comparison</h2>
                     <div class="model-comparison">
         """
         
@@ -490,7 +490,7 @@ class AdvancedThermalAnalyzer:
                             <p><strong>R² Score:</strong> {results['r2']:.4f}</p>
                             <p><strong>RMSE:</strong> {results['rmse']:.2f}°C</p>
                             <p><strong>MAE:</strong> {results['mae']:.2f}°C</p>
-                            {'<p style="color: #28a745;"><strong>بهترین مدل</strong></p>' if is_best else ''}
+                            {'<p style="color: #28a745;"><strong>Best Model</strong></p>' if is_best else ''}
                         </div>
                 """
         
@@ -499,26 +499,26 @@ class AdvancedThermalAnalyzer:
                 </div>
                 
                 <div class="section">
-                    <h2>🔍 ویژگی‌های محاسبه شده</h2>
+                    <h2>🔍 Calculated Features</h2>
                     <ul>
-                        <li>اختلاف دما (Temperature Difference)</li>
-                        <li>مقاومت حرارتی (Thermal Resistance)</li>
-                        <li>ضریب انتقال حرارت جابجایی (Convection Coefficient)</li>
-                        <li>فاکتور تشعشع (Radiation Factor)</li>
-                        <li>فاکتور پیچیدگی هندسی (Complexity Factor)</li>
-                        <li>شاخص حرارتی ترکیبی (Thermal Index)</li>
+                        <li>Temperature Difference</li>
+                        <li>Thermal Resistance</li>
+                        <li>Convection Coefficient</li>
+                        <li>Radiation Factor</li>
+                        <li>Geometry Complexity Factor</li>
+                        <li>Combined Thermal Index</li>
                     </ul>
                 </div>
                 
                 <div class="section">
-                    <h2>📈 نتایج تحلیل</h2>
-                    <p>سیستم با استفاده از ترکیب اصول فیزیک حرارت و الگوریتم‌های یادگیری ماشین، قادر به پیش‌بینی دمای سطح تجهیزات پیچیده است.</p>
-                    <p><strong>دقت مدل بهینه:</strong> <span class="value">{max(results['r2'] for results in self.models.values()):.1%}</span></p>
+                    <h2>📈 Analysis Results</h2>
+                    <p>The system combines thermal physics principles with machine learning algorithms to predict surface temperatures of complex equipment.</p>
+                    <p><strong>Best Model Accuracy:</strong> <span class="value">{max(results['r2'] for results in self.models.values()):.1%}</span></p>
                 </div>
                 
                 <div style="margin-top: 30px; text-align: center; color: #6c757d;">
-                    <p>تاریخ تحلیل: {pd.Timestamp.now().strftime('%Y/%m/%d - %H:%M')}</p>
-                    <p>سیستم تحلیل پیشرفته حرارتی - نسخه 3.0</p>
+                    <p>Analysis Date: {pd.Timestamp.now().strftime('%Y/%m/%d - %H:%M')}</p>
+                    <p>Advanced Thermal Analysis System - Version 3.0</p>
                 </div>
             </div>
         </body>
