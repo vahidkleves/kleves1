@@ -1,0 +1,99 @@
+
+        <!DOCTYPE html>
+        <html dir="rtl" lang="fa">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>گزارش تحلیل پیشرفته حرارتی</title>
+            <style>
+                body { font-family: 'Tahoma', Arial, sans-serif; margin: 20px; }
+                .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; text-align: center; border-radius: 10px; }
+                .content { padding: 20px; }
+                .section { margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #007bff; }
+                .metric { display: inline-block; margin: 10px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+                .value { font-weight: bold; color: #007bff; font-size: 1.2em; }
+                .model-comparison { display: flex; justify-content: space-around; flex-wrap: wrap; }
+                .model-card { background: white; padding: 15px; margin: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); min-width: 200px; }
+                .best-model { border: 3px solid #28a745; }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>🔬 سیستم تحلیل پیشرفته حرارتی</h1>
+                <p>تحلیل هوشمند عایق‌کاری با یادگیری ماشین</p>
+            </div>
+            
+            <div class="content">
+                <div class="section">
+                    <h2>📊 خلاصه داده‌ها</h2>
+                    <div class="metric">
+                        <div>تعداد نمونه‌های آموزشی</div>
+                        <div class="value">15 نمونه</div>
+                    </div>
+                    <div class="metric">
+                        <div>انواع تجهیزات</div>
+                        <div class="value">9 نوع</div>
+                    </div>
+                    <div class="metric">
+                        <div>انواع عایق</div>
+                        <div class="value">4 نوع</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🤖 مقایسه مدل‌های یادگیری ماشین</h2>
+                    <div class="model-comparison">
+        
+                        <div class="model-card">
+                            <h3>Random Forest</h3>
+                            <p><strong>R² Score:</strong> 0.7672</p>
+                            <p><strong>RMSE:</strong> 73.17°C</p>
+                            <p><strong>MAE:</strong> 50.12°C</p>
+                            
+                        </div>
+                
+                        <div class="model-card best-model">
+                            <h3>🏆 Gradient Boosting</h3>
+                            <p><strong>R² Score:</strong> 0.9082</p>
+                            <p><strong>RMSE:</strong> 45.95°C</p>
+                            <p><strong>MAE:</strong> 38.18°C</p>
+                            <p style="color: #28a745;"><strong>بهترین مدل</strong></p>
+                        </div>
+                
+                        <div class="model-card">
+                            <h3>Neural Network</h3>
+                            <p><strong>R² Score:</strong> 0.7543</p>
+                            <p><strong>RMSE:</strong> 75.18°C</p>
+                            <p><strong>MAE:</strong> 65.93°C</p>
+                            
+                        </div>
+                
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🔍 ویژگی‌های محاسبه شده</h2>
+                    <ul>
+                        <li>اختلاف دما (Temperature Difference)</li>
+                        <li>مقاومت حرارتی (Thermal Resistance)</li>
+                        <li>ضریب انتقال حرارت جابجایی (Convection Coefficient)</li>
+                        <li>فاکتور تشعشع (Radiation Factor)</li>
+                        <li>فاکتور پیچیدگی هندسی (Complexity Factor)</li>
+                        <li>شاخص حرارتی ترکیبی (Thermal Index)</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>📈 نتایج تحلیل</h2>
+                    <p>سیستم با استفاده از ترکیب اصول فیزیک حرارت و الگوریتم‌های یادگیری ماشین، قادر به پیش‌بینی دمای سطح تجهیزات پیچیده است.</p>
+                    <p><strong>دقت مدل بهینه:</strong> <span class="value">90.8%</span></p>
+                </div>
+                
+                <div style="margin-top: 30px; text-align: center; color: #6c757d;">
+                    <p>تاریخ تحلیل: 2025/08/05 - 06:38</p>
+                    <p>سیستم تحلیل پیشرفته حرارتی - نسخه 3.0</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        
