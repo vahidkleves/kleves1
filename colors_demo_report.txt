@@ -1,0 +1,30 @@
+
+🔥 گزارش تحلیل حرارتی سیستم کلورز
+Colors Thermal Analysis Report
+==================================================
+
+📋 مشخصات تجهیز / Equipment Specifications:
+• نوع تجهیز / Equipment Type: Turbine
+• نوع عایق / Insulation Type: Cerablanket
+• ضخامت عایق / Insulation Thickness: 100.0 mm
+• مساحت سطح / Surface Area: 50.0 m²
+• دمای داخلی / Internal Temperature: 600.0°C
+• دمای محیط / Ambient Temperature: 25.0°C
+• سرعت باد / Wind Speed: 5.0 m/s
+
+🌡️ نتایج پیش‌بینی / Prediction Results:
+• پیش‌بینی فیزیکی / Physics Prediction: 35.1°C
+• پیش‌بینی یادگیری ماشین / ML Prediction: 38.4°C
+• پیش‌بینی ترکیبی / Combined Prediction: 37.1°C
+
+🔬 خصوصیات حرارتی / Thermal Properties:
+• ضریب هدایت حرارتی / Thermal Conductivity: 0.0518 W/m·K
+• اختلاف دما / Temperature Difference: 575.0°C
+
+📊 تحلیل عملکرد / Performance Analysis:
+• کیفیت عایق‌کاری / Insulation Quality: عالی
+• بازدهی انرژی / Energy Efficiency: 97.9%
+
+⚠️  توصیه‌ها / Recommendations:
+• عایق‌کاری بهینه است
+• Insulation is optimal
